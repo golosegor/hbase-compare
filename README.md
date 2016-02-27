@@ -48,7 +48,7 @@ Command Line arguments
 - skipTs			-	Skips the timestamp comparison (only values will be compared) for the entire HBase table
 
 ----------------------
-Comparison Output
+Utility Output
 ----------------------
 On running the utility, the last logging statement denotes whether the HBase tables match or not. If HBase tables match, "Tables Match" will be logged. If the comparison results in mismatch, 2 files will be generated at the hdfs output path specified in the argument (outPath). The following files will be generated at the output path
 - missing_rowkeys		-	This file will list the rowkeys missing in one of the tables. The info will be logged as tablename with missing rowkey
