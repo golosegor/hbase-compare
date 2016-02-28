@@ -28,11 +28,11 @@ Execution
 ----------------------
 The HBase compare utility has to be run as hadoop utility. Before running the utility, hadoop and hbase jars has to be added to the classpath as
 
-- export HADOOP_CLASSPATH=`hadoop classpath`:`hbase classpath`:<path of hbase-site.xml>
+- export HADOOP_CLASSPATH=\`hadoop classpath\`:\`hbase classpath\`:\<path of hbase-site.xml\>
 
 The utility is run using the following command. (optional arguments are specified in [])
 
-- hadoop jar HbaseCompare-1.0.jar com.pponna.hbase.compare.HbaseCompare -tbl1 <table1> -tbl2 <table2> -outPath <hdfs output path> [-vof <fields delimited by comma>] [-skipCols <columns delimited by comma>] [-skipFamily <column familiy delimited by comma>] [-numRed <number of reducers>] -libjars <hbase jars delimited by comma> [-skipTs]
+- hadoop jar HbaseCompare-1.0.jar com.pponna.hbase.compare.HbaseCompare -tbl1 \<table1\> -tbl2 \<table2\> -outPath \<hdfsOutputPath\> [-vof \<FieldsDelimitedByComma\>] [-skipCols \<ColumnsDelimitedByComma\>] [-skipFamily \<ColumnFamiliesDelimitedByComma\>] [-numRed \<NumberOfReducers\>] -libjars \<HbaseJarsDelimitedByComma\> [-skipTs]
 
 ----------------------
 Command Line arguments
