@@ -39,6 +39,7 @@
 	</pluginRepositories>
 
 	<build>
+
 		<defaultGoal>install</defaultGoal>
 		<pluginManagement>
 			<plugins>
@@ -77,6 +78,65 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>work</directory>
+						</fileset>
+						<fileset>
+							<directory>checkpoint</directory>
+						</fileset>
+						<fileset>
+							<directory>lib_managed</directory>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-shade-plugin</artifactId>
+			<version>3.2.4</version>
+			<executions>
+				<execution>
+					<phase>verify</phase>
+					<goals>
+						<goal>shade</goal>
+					</goals>
+					<configuration>
+						<artifactSet>
+<!--							<excludes>-->
+<!--								<exclude>org.apache.hadoop:*</exclude>-->
+<!--								<exclude>asm:asm</exclude>-->
+<!--								<exclude>io.netty:netty</exclude>-->
+<!--								<exclude>org.jboss.netty:netty</exclude>-->
+<!--								<exclude>org.apache.hbase:hbase-hadoop2-compat</exclude>-->
+<!--								<exclude>commons-logging:commons-logging</exclude>-->
+<!--								<exclude>org.jruby:jruby-complete</exclude>-->
+<!--								<exclude>org.apache.spark:*</exclude>-->
+<!--								<exclude>org.scala-lang:*</exclude>-->
+<!--							</excludes>-->
+						</artifactSet>
+						<createDependencyReducedPom>false</createDependencyReducedPom>
+						<outputDirectory>${project.basedir}/target/lib</outputDirectory>
+						<minimizeJar>false</minimizeJar>
+						<filters>
+							<filter>
+								<artifact>*:*</artifact>
+								<excludes>
+									<exclude>META-INF/*.SF</exclude>
+									<exclude>META-INF/*.DSA</exclude>
+									<exclude>META-INF/*.RSA</exclude>
+								</excludes>
+							</filter>
+						</filters>
+					</configuration>
+				</execution>
+			</executions>
 			</plugin>
 		</plugins>
 	</build>
@@ -190,5 +250,7 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+
 
 </project>
